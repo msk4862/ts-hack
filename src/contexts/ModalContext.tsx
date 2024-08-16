@@ -22,7 +22,7 @@ type ModalContextProps = {
 const ModalContext = createContext<ModalContextProps | undefined>(undefined)
 
 export function ModalProvider({ children }: { children: ReactNode }) {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
   const [content, setContent] = useState<ModalContextProps['content']>(null)
 
   const openModal = useCallback(
