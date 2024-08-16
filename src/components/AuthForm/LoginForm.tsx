@@ -33,6 +33,10 @@ export default function LoginForm({ isModal }: Props) {
     navigate('/register')
   }
 
+  function handleForgotPasswordClick() {
+    // Handle forgot password logic
+  }
+
   return (
     <FormWrapper>
       <Header heading='Welcome Back' subheading='Log into your account' />
@@ -51,6 +55,7 @@ export default function LoginForm({ isModal }: Props) {
           type='password'
           autoComplete='current-password'
           isPassword={true}
+          onForgotPasswordClick={handleForgotPasswordClick}
           placeholder='Enter your password'
         />
         <Button type='submit' className='mt-1'>

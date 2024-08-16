@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import IconButton from './IconButton'
+import ClickableDiv from './ClickableDiv'
 import EyeIcon from '@/assets/icons/eye.svg'
 import HiddenEyeIcon from '@/assets/icons/hidden_eye.svg'
 
@@ -10,6 +11,7 @@ type Props = {
   name: string
   endIcon?: React.ReactNode
   isPassword?: boolean
+  onForgotPasswordClick?: () => void
 } & React.InputHTMLAttributes<HTMLInputElement>
 
 export default function Input({
@@ -18,6 +20,7 @@ export default function Input({
   type,
   endIcon,
   isPassword,
+  onForgotPasswordClick,
   ...rest
 }: Props) {
   const [passwordShown, setPasswordShown] = useState(false)
@@ -29,15 +32,10 @@ export default function Input({
   function getEndIcon() {
     if (isPassword) {
       return (
-        <IconButton
-          onClick={togglePassword}
-          aria-label={`${passwordShown ? 'Hide' : 'Show'} password`}
-        >
-          <img
-            src={passwordShown ? HiddenEyeIcon : EyeIcon}
-            alt='Toggle password visibility'
-          />
-        </IconButton>
+        <PasswordToggle
+          togglePassword={togglePassword}
+          passwordShown={passwordShown}
+        />
       )
     }
     return <>{endIcon}</>
@@ -51,10 +49,8 @@ export default function Input({
         <label htmlFor={id} className='text-heading text-sm'>
           {label}
         </label>
-        {isPassword && (
-          <a href='#' className='text-heading text-xs'>
-            Forgot password?
-          </a>
+        {isPassword && onForgotPasswordClick && (
+          <ForgotPasswordCta handleClick={onForgotPasswordClick} />
         )}
       </div>
       <input
@@ -67,5 +63,43 @@ export default function Input({
         <div className='absolute right-3 bottom-2.5'>{getEndIcon()}</div>
       )}
     </div>
+  )
+}
+
+type PasswordToggleProps = {
+  togglePassword: () => void
+  passwordShown: boolean
+}
+
+function PasswordToggle({
+  togglePassword,
+  passwordShown,
+}: PasswordToggleProps) {
+  return (
+    <IconButton
+      onClick={togglePassword}
+      aria-label={`${passwordShown ? 'Hide' : 'Show'} password`}
+    >
+      <img
+        src={passwordShown ? HiddenEyeIcon : EyeIcon}
+        alt='Toggle password visibility'
+      />
+    </IconButton>
+  )
+}
+
+type ForgotPasswordCtaProps = {
+  handleClick: () => void
+}
+
+function ForgotPasswordCta({ handleClick }: ForgotPasswordCtaProps) {
+  return (
+    <ClickableDiv
+      onClick={handleClick}
+      aria-label='Forgot password'
+      className='text-heading text-xs'
+    >
+      Forgot password?
+    </ClickableDiv>
   )
 }
