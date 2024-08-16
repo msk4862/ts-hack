@@ -5,21 +5,22 @@ This project is a React application using TypeScript and Vite.
 ## Project Structure
 
 ```
-.
-├── src/
-│   ├── App.tsx
-│   ├── components/
-│   │   ├── shared/
-│   ├── contexts/
-│   ├── data/
-│   ├── hooks/
-│   ├── layouts/
-│   ├── pages/
-│   ├── types.ts
-│   └── vite-env.d.ts
-├── package.json
-├── README.md
-└── vite.config.ts
+├── src/                  # Main source directory
+│ ├── App.tsx             # Root component of the application
+| |-- main.tsx            # Entry point for the React application
+| |-- index.css           # Application base styles
+│ ├── components/         # UI components
+│ │ ├── shared/           # Shared components used across the app
+│ ├── contexts/           # Context providers for global state management
+│ ├── data/               # Static or mock data files
+│ ├── hooks/              # Custom React hooks
+│ ├── layouts/            # Layout components that structure pages
+│ ├── pages/              # Page components representing different routes
+│ └── types.ts            # Common TypeScript type definitions
+├── package.json          # Project dependencies and scripts
+├── README.md             # Project documentation
+└── tailwind.config.js    # Tailwind CSS configuration
+└── vite.config.ts        # Vite configuration for the build process
 ```
 
 ## Commands
