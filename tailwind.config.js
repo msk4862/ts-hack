@@ -20,14 +20,17 @@ export default {
         'default-border': 'var(--default-border-color)',
       },
       colors: {
-        'blue-1': '#4A96FF',
-        'gray-1': '#6B6C70',
-        'gray-2': '#969696',
-        'gray-3': '#343434',
+        'blue-1': 'var(--blue-1)',
+        'gray-1': 'var(--gray-1)',
+        'gray-2': 'var(--gray-2)',
+        'gray-3': 'var(--gray-3)',
       },
       animation: {
         reveal: 'reveal 0.5s ease-in forwards',
         'scale-up': 'scaleUp 0.3s ease-in-out forwards',
+      },
+      scale: {
+        101: '1.01',
       },
     },
   },

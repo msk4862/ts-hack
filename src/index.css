@@ -12,6 +12,13 @@
   --heading-text-color: #c5c7ca;
   /* border colors */
   --default-border-color: #35373b;
+  /* button color */
+  --button-idle-color: #4a96ff;
+  /* other colors */
+  --blue-1: #4a96ff;
+  --gray-1: #6b6c70;
+  --gray-2: #969696;
+  --gray-3: #343434;
 }
 
 body {
@@ -52,7 +59,7 @@ span {
     transform: scale(1);
   }
   100% {
-    transform: scale(1.01);
+    transform: scale(theme('scale.101'));
     filter: drop-shadow(1px 5px 10px rgba(0, 0, 0, 0.5));
   }
 }
@@ -60,7 +67,7 @@ span {
 @keyframes reveal {
   0% {
     opacity: 0;
-    transform: translateY(2rem);
+    transform: translateY(theme('spacing.8'));
   }
   100% {
     opacity: 1;

@@ -1,5 +1,6 @@
 import { useAuthModal } from '@/hooks/useAuthModal'
 import Button from '@shared/Button'
+import ClickableDiv from '@shared/ClickableDiv'
 import CardContent from './CardContent'
 
 export default function CreatePost() {
@@ -24,14 +25,9 @@ export default function CreatePost() {
   return (
     <div className='card flex flex-col gap-4'>
       <h2 className='text-xl'>Create Post</h2>
-      <div
-        tabIndex={0}
-        role='button'
-        aria-label='Create post'
-        onClick={handlePostInput}
-      >
+      <ClickableDiv aria-label='Create post' onClick={handlePostInput}>
         <CardContent icon='💬' content='How are you feeling today?' />
-      </div>
+      </ClickableDiv>
       <div className='w-1/6 self-end'>
         <Button onClick={handlePost}>Post</Button>
       </div>

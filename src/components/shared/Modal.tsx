@@ -1,9 +1,9 @@
-import ReactDOM from 'react-dom'
-import IconButton from './IconButton'
-import { useModal } from '@/contexts/ModalContext'
-import { ModalRegistery } from '@/hooks/useAuthModal'
-import CrossIcon from '@/assets/icons/cross.svg'
 import { useEffect } from 'react'
+import ReactDOM from 'react-dom'
+import { ModalRegistery } from '@/hooks/useAuthModal'
+import { useModal } from '@/contexts/ModalContext'
+import CrossIcon from '@/assets/icons/cross.svg'
+import IconButton from './IconButton'
 
 function Modal() {
   const { isOpen, closeModal, content } = useModal()

@@ -1,8 +1,8 @@
 import { useAuthModal } from '@/hooks/useAuthModal'
-import CardContent from './CardContent'
-import PostHeader from './PostHeader'
 import ClickableDiv from '@shared/ClickableDiv'
 import ChatBubbleIcon from '@/assets/icons/chat_bubble.svg'
+import CardContent from './CardContent'
+import PostHeader from './PostHeader'
 
 type Props = {
   username: string

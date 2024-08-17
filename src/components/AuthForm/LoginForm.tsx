@@ -1,22 +1,32 @@
-import { FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuthModal } from '@/hooks/useAuthModal'
+import useForm from '@/hooks/useForm'
 import Button from '@shared/Button'
 import Input from '@shared/Input'
 import Header from './Header'
 import Footer from './Footer'
 import FormWrapper from './FormWrapper'
-import { ModalFormProps } from '@/types'
+import { LOGIN_FORM_VALIDATION_RULES } from '@/constants'
+import { LoginFormValues, ModalFormProps } from '@/types'
 
 type Props = ModalFormProps
 
 export default function LoginForm({ isModal }: Props) {
   const navigate = useNavigate()
   const { openRegisterModal } = useAuthModal()
+  const { values, errors, handleSubmit, handleChange } =
+    useForm<LoginFormValues>({
+      initialValues: {
+        username: '',
+        password: '',
+      },
+      validationRules: LOGIN_FORM_VALIDATION_RULES,
+      onSubmit,
+    })
 
-  function handleSubmit(event: FormEvent) {
-    event.preventDefault()
+  function onSubmit(formData: LoginFormValues) {
     // Handle login logic
+    console.log('Login', formData)
 
     // Redirect to home page
     navigate('/')
@@ -40,13 +50,20 @@ export default function LoginForm({ isModal }: Props) {
   return (
     <FormWrapper>
       <Header heading='Welcome Back' subheading='Log into your account' />
-      <form className='flex flex-col gap-4 mt-10' onSubmit={handleSubmit}>
+      <form
+        className='flex flex-col gap-4 mt-10'
+        onSubmit={handleSubmit}
+        noValidate
+      >
         <Input
           label='Email or Username'
-          id='email'
-          name='email'
-          type='email'
+          id='username'
+          name='username'
           placeholder='Enter your email or username'
+          value={values.username}
+          handleChange={handleChange}
+          errorMessage={errors.username}
+          required
         />
         <Input
           label='Password'
@@ -54,9 +71,13 @@ export default function LoginForm({ isModal }: Props) {
           name='password'
           type='password'
           autoComplete='current-password'
-          isPassword={true}
+          isPassword
+          value={values.password}
+          handleChange={handleChange}
+          errorMessage={errors.password}
           onForgotPasswordClick={handleForgotPasswordClick}
           placeholder='Enter your password'
+          required
         />
         <Button type='submit' className='mt-1'>
           Login now

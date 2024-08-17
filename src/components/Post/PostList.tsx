@@ -1,5 +1,5 @@
-import PostItem from './PostItem'
 import posts from '@/data/posts.json'
+import PostItem from './PostItem'
 
 export default function PostList() {
   return (
