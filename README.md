@@ -24,7 +24,7 @@ This project is a React application using TypeScript and Vite.
 └── vite.config.ts        # Vite configuration for the build process
 ```
 
-## Features
+## Overview
 
 - **Authentication**:
   - Login and Register forms with validation ([`LoginForm`](src/components/AuthForm/LoginForm.tsx), [`RegisterForm`](src/components/AuthForm/RegisterForm.tsx)).
