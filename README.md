@@ -16,12 +16,15 @@ This project is a React application using TypeScript and Vite.
 │ ├── hooks/              # Custom React hooks
 │ ├── layouts/            # Layout components that structure pages
 │ ├── pages/              # Page components representing different routes
-│ └── types.ts            # Common TypeScript type definitions
+│ ├── utils/              # Common application utilities
+│ └── types.ts            # Common type definitions
 ├── package.json          # Project dependencies and scripts
 ├── README.md             # Project documentation
 └── tailwind.config.js    # Tailwind CSS configuration
 └── vite.config.ts        # Vite configuration for the build process
 ```
+
+## Features 
 
 ## Commands
 
